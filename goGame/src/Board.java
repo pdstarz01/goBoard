@@ -1,33 +1,23 @@
-import java.util.Scanner;
-
 public class Board {
 
-    static Scanner scan = new Scanner(System.in);
+    String board[][] = new String[9][9];
 
-    static String Black_Piece = new String(" O ");
-    static String White_Piece = new String(" * ") ;
-
-    static String Board[][] = new String[19][19];
-
-    static String Current_Player = "Black";
-    static int Turn_Count = 0;
-
-    public static void main(String[] args) {
-        CreateBoard();
+    public void main(String[] args) {
+        Create_Board();
     }
-    public static void CreateBoard(){
+    public void Create_Board(){
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                Board[i][j] = " + ";
-                System.out.print(Board[i][j]);
+                board[i][j] = " + ";
+                System.out.print(board[i][j]);
             }
             System.out.println();
         }
     }
-    public static void PrintBoard(){
+    public void Print_Board(){
         for (int i = 0; i < 9; i++) {
             for (int j = 0; j < 9; j++) {
-                System.out.print(Board[i][j]);
+                System.out.print(board[i][j]);
             }
             System.out.println();
         }
