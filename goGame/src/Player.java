@@ -5,6 +5,7 @@ public class Player {
     static Scanner scan = new Scanner(System.in);
     String piece = "";
     String name  = "";
+    int points = 0;
     public int[] Place_Piece(){
         System.out.print("What is the X point you want to place a piece?:\n");
         int moveX = scan.nextInt();
