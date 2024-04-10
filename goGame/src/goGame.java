@@ -2,6 +2,7 @@ public class goGame {
     static Player Black  = new Player();
     static Player White  = new Player();
     static Board goBoard = new Board();
+    static String[][] capturedBoard = GridFunctions.capturedBoard(9,9);
     static String empty = " + ";
     public static void main(String[] args) {
         Initialize_Game();
@@ -20,7 +21,7 @@ public class goGame {
         int moveX = move[0]-1;
         int moveY = move[1]-1;
         try {
-            if((goBoard.board[moveX][moveY] == " X ") || (goBoard.board[moveX][moveY] == " O ")){
+            if((goBoard.board[moveY][moveX] == " X ") || (goBoard.board[moveY][moveX] == " O ")){
                 System.out.println("There is already a piece there! Pick another location\n");
                 Player_Turn(player, next);
             }
@@ -33,8 +34,12 @@ public class goGame {
             Player_Turn(player, next);
         }
         goBoard.Print_Board();
+        for (int i = 0; i < goBoard.board.length; i++) {
+            for (int j = 0; j < goBoard.board[i].length; j++) {
+                GridFunctions.singularCapture(goBoard.board, capturedBoard, i, j, Black, White);
+            }
+        }
         System.out.println("The Score is:\n" + Black.name + " has " + Black.points + ".\n" + White.name + " has " + White.points + ".\n");
         Player_Turn(next, player);
     }
 }
-
